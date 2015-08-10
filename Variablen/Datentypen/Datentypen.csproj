@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{643EBA42-F574-4E1A-A9EA-CE30DFDBE84B}</ProjectGuid>
+    <ProjectGuid>{DBC223AF-C49E-45AF-BEC7-46436FA0173F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Variablen</RootNamespace>
-    <AssemblyName>Variablen</AssemblyName>
+    <RootNamespace>Datentypen</RootNamespace>
+    <AssemblyName>Datentypen</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
