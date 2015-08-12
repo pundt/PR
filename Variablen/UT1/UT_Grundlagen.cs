@@ -1,6 +1,7 @@
 ﻿using System;
 using BSP1;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Reflection;
 
 namespace UT1
 {
@@ -8,21 +9,23 @@ namespace UT1
     public class UT_Grundlagen
     {
         [TestMethod]
-        public void Variablen_Anlegen_1()
+        public void Aufgabe_1()
         {
-            Grundlagen g = new Grundlagen();
-            object returnValue = g.variablen_anlegen_1();
+            Person p = new Person();
+            Type t = p.GetType();
+            FieldInfo fiAlter = t.GetField("alter", BindingFlags.NonPublic | BindingFlags.Instance);
 
-            Assert.IsInstanceOfType(returnValue, typeof(int), "Falscher Datentyp für Alter - gefordert ist Integer");
-
-            int value = (int)returnValue;
-            Assert.IsTrue(value > 0 && value < 150, "Ungültiger Wert für ein Alter");
+            Assert.IsTrue(fiAlter != null, "Die Variable \"alter\" fehlt!");
+            Assert.IsTrue(fiAlter.FieldType == typeof(int), "Die Variable \"alter\" muss den Datentyp \"Integer\" haben");
         }
 
         [TestMethod]
-        public void Variablen_Anlegen_2()
+        public void Aufgabe_2()
         {
-           
+            Person p = new Person();
+            p.Initialisieren();
+
+            Assert.IsTrue((int) p.AlterAuslesen() > 0 && (int) p.AlterAuslesen() < 150, "Der Wert für die Variable \"alter\" ist ungültig");
         }
     }
 }
