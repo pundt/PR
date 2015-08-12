@@ -30,6 +30,14 @@ namespace Grundlagen
             /// jede Variable sollte sofort beim Anlegen einen Start-Wert erhalten
             int anzahlHaareHomerSimpson = 5;
             double sparguthaben = 0;
+
+            /// Variablen Speicherort
+            /// Variablen werden zur Laufzeit des Programmes im Arbeitsspeicher angelegt.
+            /// .net Framework Programme werden im sogenannten "managed memory" (verwalteten Speicher)
+            /// abgelegt. Sämtliche Variablen eines Programmes sind also dort zu finden.
+            /// 
+            /// Wieviel Platz eine Variable im Arbeitsspeicher/managed memory einnimmt, bestimmt
+            /// unter anderem der Datentyp (siehe Lektion Datentypen)
         }
     }
 }
