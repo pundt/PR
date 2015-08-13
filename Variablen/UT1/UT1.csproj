@@ -36,10 +36,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="TestSuite, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\TestSuite\TestSuite\bin\Debug\TestSuite.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -58,6 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\TestSuite\TestSuite\TestSuite.csproj">
+      <Project>{b3a81fc0-2e59-4cc2-b5e7-4722503d8f76}</Project>
+      <Name>TestSuite</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BSP1\BSP1.csproj">
       <Project>{24631af4-f8ae-40b2-a7c4-241531fe8ca6}</Project>
       <Name>BSP1</Name>
