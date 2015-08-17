@@ -60,4 +60,34 @@ namespace BSP1
 
         }
     }
+
+    public class Raumschiff : BeispielKlasse
+    {
+        /// TODO - Aufgabe 9: Legen Sie eine bool Variable 'hatPhasor', eine int Variable 'anzahlTorpedos' und 
+        /// eine string Variable 'kennung' an.
+
+        public void Initialisieren()
+        {
+            /// TODO - Aufgabe 10: Legen Sie ihr persönliches Raumschiff Enterprise an.
+            ///     Weisen Sie der Variable hatPhasor einen beliebigen Wert zu
+            ///     Weisen Sie der Variable anzahlTorpedos eine Zahl zwischen 0 und 1999 zu.
+            ///     Weisen Die der Variable 'kennung' einen Wert beginnend mit "NCC-1701" zu
+            
+        }
+    }
+
+    public class Dokument : BeispielKlasse
+    {
+        /// TODO - Aufgabe 11: Legen Sie eine string Variable 'typ', eine long Variable 'anzahlBytes' und 
+        /// eine string Variable 'dokumentenName' an.
+
+        public void Initialisieren()
+        {
+            /// TODO - Aufgabe 12: Excel-Dokument
+            ///     Weisen Sie der Variable typ den Wert ".xlsx" zu
+            ///     Weisen Sie der Variable anzahlBytes eine Zahl zwischen 10000 und 4999999 zu.
+            ///     Weisen Die der Variable 'dokumentenName' einen beliebigen Wert mit mindestens fünf Zeichen zu
+
+        }
+    }
 }

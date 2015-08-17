@@ -64,5 +64,36 @@ namespace UT1
             Programmieren.PrüfeWert<int>(typeof(Haus), "breite", (x => x >= 1 && x <= 100));
         }
 
+        [TestMethod]
+        public void Aufgabe_9()
+        {
+            Programmieren.PrüfeFeld(typeof(Raumschiff), "hatPhasor", typeof(bool));
+            Programmieren.PrüfeFeld(typeof(Raumschiff), "anzahlTorpedos", typeof(int));
+            Programmieren.PrüfeFeld(typeof(Raumschiff), "kennung", typeof(string));
+        }
+
+        [TestMethod]
+        public void Aufgabe_10()
+        {
+            Programmieren.PrüfeWert<bool>(typeof(Raumschiff), "hatPhasor", (x => x==true || x ==false));
+            Programmieren.PrüfeWert<int>(typeof(Raumschiff), "anzahlTorpedos", (x => x >= 0 && x <= 1999));
+            Programmieren.PrüfeWert<string>(typeof(Raumschiff), "kennung", (x => x.StartsWith("NCC-1701",StringComparison.InvariantCultureIgnoreCase)));
+        }
+
+        [TestMethod]
+        public void Aufgabe_11()
+        {
+            Programmieren.PrüfeFeld(typeof(Dokument), "typ", typeof(string));
+            Programmieren.PrüfeFeld(typeof(Dokument), "anzahlBytes", typeof(long));
+            Programmieren.PrüfeFeld(typeof(Dokument), "dokumentenName", typeof(string));
+        }
+
+        [TestMethod]
+        public void Aufgabe_12()
+        {
+            Programmieren.PrüfeWert<string>(typeof(Dokument), "typ", (x => x.Equals(".xlsx", StringComparison.InvariantCultureIgnoreCase));
+            Programmieren.PrüfeWert<long>(typeof(Dokument), "anzahlBytes", (x => x >= 10000 && x <= 4999999));
+            Programmieren.PrüfeWert<string>(typeof(Dokument), "dokumentenName", (x => x.Length >= 5));
+        }
     }
 }

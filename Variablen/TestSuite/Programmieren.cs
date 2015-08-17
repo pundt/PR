@@ -17,8 +17,15 @@ namespace TestSuite
         {
             FieldInfo fieldInfo = typ.GetField(feldName, BindingFlags.NonPublic | BindingFlags.Instance);
 
-            Assert.IsTrue(fieldInfo != null, string.Format("Die Variable \"{0}\" fehlt!", feldName));
-            Assert.IsTrue(fieldInfo.FieldType == feldTyp, string.Format("Die Variable \"{0}\" muss den Datentyp \"{1}\" haben", feldName, feldTyp));
+            if (fieldInfo != null)
+            {
+                Assert.IsTrue(fieldInfo != null, string.Format("Die Variable \"{0}\" fehlt!", feldName));
+                Assert.IsTrue(fieldInfo.FieldType == feldTyp, string.Format("Die Variable \"{0}\" muss den Datentyp \"{1}\" haben", feldName, feldTyp));
+            }
+            else
+            {
+                Assert.Fail(string.Format("Feld {0} wurde nicht gefunden!", feldName));
+            }
         }
         /// <summary>
         /// Prüft ob ein Feld in einem Typ ein Predicate erfüllt.
@@ -34,11 +41,25 @@ namespace TestSuite
 
             MethodInfo miInitialisieren = typ.GetMethod("Initialisieren");
             if (miInitialisieren != null)
+            {
                 miInitialisieren.Invoke(o, null);
 
-            T value = (T)typ.GetMethod("WertAuslesen").Invoke(o, new object[] { feldName });
+                MethodInfo miWertAuslesen = typ.GetMethod("WertAuslesen");
 
-            Assert.IsTrue(predicate.Invoke(value), string.Format("Der Wert für die Variable \"{0}\" ist ungültig", feldName));
+                if (miWertAuslesen != null)
+                {
+                    T value = (T)miWertAuslesen.Invoke(o, new object[] { feldName });
+                    Assert.IsTrue(predicate.Invoke(value), string.Format("Der Wert für die Variable \"{0}\" ist ungültig", feldName));
+                }
+                else
+                {
+                    Assert.Fail("\"WertAuslesen\" Methode konnte nicht gefunden werden!\nBitte \"BeispielKlasse\" verwenden.");
+                }
+            }
+            else
+            {
+                Assert.Fail("\"Initialisieren\" Methode konnte nicht gefunden werden.");
+            }
         }
     }
 }

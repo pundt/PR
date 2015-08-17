@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Reflection;
 
 namespace TestSuite
@@ -20,7 +21,19 @@ namespace TestSuite
         {
             Type t = this.GetType();
             FieldInfo fi = t.GetField(feldName, BindingFlags.NonPublic | BindingFlags.Instance);
-            return fi.GetValue(this);
+
+            object returnValue = null;
+
+            if (fi != null)
+            {
+                returnValue = fi.GetValue(this);
+            }
+            else
+            {
+                Assert.IsTrue(returnValue!=null, string.Format("Das Feld {0} konnte nicht gefunden werden!", feldName));
+            }
+
+            return returnValue;
         }
         #endregion
     }
