@@ -16,35 +16,35 @@ namespace BSP1
 
     public class Person : BeispielKlasse
     {
-        /// TODO - Aufgabe 1: Legen Sie eine int Variable alter an
+        /// TODO - Aufgabe 001: Legen Sie eine int Variable alter an
         
 
         public void Initialisieren()
         {
-            /// TODO - Aufgabe 2: Weisen Sie der Variable alter Ihr Alter zu!
+            /// TODO - Aufgabe 002: Weisen Sie der Variable alter Ihr Alter zu!
 
         }
     }
 
     public class Konto : BeispielKlasse
     {
-        /// TODO - Aufgabe 3: Legen Sie eine double Variable kontoStand an
+        /// TODO - Aufgabe 003: Legen Sie eine double Variable kontoStand an
 
         public void Initialisieren()
         {
-            /// TODO - Aufgabe 4: Weisen Sie der Variable kontoStand Ihren gewünschten Kontostand zu!
+            /// TODO - Aufgabe 004: Weisen Sie der Variable kontoStand Ihren gewünschten Kontostand zu!
 
         }
     }
 
     public class Auto : BeispielKlasse
     {
-        /// TODO - Aufgabe 5: Legen Sie eine string Variable kennzeichen und
+        /// TODO - Aufgabe 005: Legen Sie eine string Variable kennzeichen und
         /// eine int Variable ps an
 
         public void Initialisieren()
         {
-            /// TODO - Aufgabe 6: Weisen Sie kennzeichen ein Wiener Kennzeichen zu (beginnend mit W)
+            /// TODO - Aufgabe 006: Weisen Sie kennzeichen ein Wiener Kennzeichen zu (beginnend mit W)
             /// Weisen Sie ps einen Wert zwischen 50 und 300 zu
 
         }
@@ -52,23 +52,23 @@ namespace BSP1
 
     public class Haus : BeispielKlasse
     {
-        /// TODO - Aufgabe 7: Legen Sie drei int Variable höhe, länge und breite an
+        /// TODO - Aufgabe 007: Legen Sie drei int Variable höhe, länge und breite an
 
         public void Initialisieren()
         {
-            /// TODO - Aufgabe 8: Weisen Sie jeder dieser Variablen einen Wert zwischen 1 und 100 zu
+            /// TODO - Aufgabe 008: Weisen Sie jeder dieser Variablen einen Wert zwischen 1 und 100 zu
 
         }
     }
 
     public class Raumschiff : BeispielKlasse
     {
-        /// TODO - Aufgabe 9: Legen Sie eine bool Variable 'hatPhasor', eine int Variable 'anzahlTorpedos' und 
+        /// TODO - Aufgabe 009: Legen Sie eine bool Variable 'hatPhasor', eine int Variable 'anzahlTorpedos' und 
         /// eine string Variable 'kennung' an.
 
         public void Initialisieren()
         {
-            /// TODO - Aufgabe 10: Legen Sie ihr persönliches Raumschiff Enterprise an.
+            /// TODO - Aufgabe 010: Legen Sie ihr persönliches Raumschiff Enterprise an.
             ///     Weisen Sie der Variable hatPhasor einen beliebigen Wert zu
             ///     Weisen Sie der Variable anzahlTorpedos eine Zahl zwischen 0 und 1999 zu.
             ///     Weisen Die der Variable 'kennung' einen Wert beginnend mit "NCC-1701" zu
@@ -78,12 +78,12 @@ namespace BSP1
 
     public class Dokument : BeispielKlasse
     {
-        /// TODO - Aufgabe 11: Legen Sie eine string Variable 'typ', eine long Variable 'anzahlBytes' und 
+        /// TODO - Aufgabe 011: Legen Sie eine string Variable 'typ', eine long Variable 'anzahlBytes' und 
         /// eine string Variable 'dokumentenName' an.
 
         public void Initialisieren()
         {
-            /// TODO - Aufgabe 12: Excel-Dokument
+            /// TODO - Aufgabe 012: Excel-Dokument
             ///     Weisen Sie der Variable typ den Wert ".xlsx" zu
             ///     Weisen Sie der Variable anzahlBytes eine Zahl zwischen 10000 und 4999999 zu.
             ///     Weisen Die der Variable 'dokumentenName' einen beliebigen Wert mit mindestens fünf Zeichen zu

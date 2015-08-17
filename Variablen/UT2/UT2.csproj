@@ -50,13 +50,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="UT_Datentypen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BSP2\BSP2.csproj">
       <Project>{d68fd431-89af-465b-a2d9-32fed575c1cf}</Project>
       <Name>BSP2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestSuite\TestSuite.csproj">
+      <Project>{b3a81fc0-2e59-4cc2-b5e7-4722503d8f76}</Project>
+      <Name>TestSuite</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
