@@ -48,8 +48,15 @@ namespace TestSuite
 
                 if (miWertAuslesen != null)
                 {
-                    T value = (T)miWertAuslesen.Invoke(o, new object[] { feldName });
-                    Assert.IsTrue(predicate.Invoke(value), string.Format("Der Wert für die Variable \"{0}\" ist ungültig", feldName));
+                    try
+                    {
+                        T value = (T)miWertAuslesen.Invoke(o, new object[] { feldName });
+                        Assert.IsTrue(predicate.Invoke(value), string.Format("Der Wert für die Variable \"{0}\" ist ungültig", feldName));
+                    }
+                    catch (TargetInvocationException ex)
+                    {
+                        throw ex.InnerException;
+                    }
                 }
                 else
                 {

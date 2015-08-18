@@ -22,18 +22,10 @@ namespace TestSuite
             Type t = this.GetType();
             FieldInfo fi = t.GetField(feldName, BindingFlags.NonPublic | BindingFlags.Instance);
 
-            object returnValue = null;
-
             if (fi != null)
-            {
-                returnValue = fi.GetValue(this);
-            }
+                return fi.GetValue(this);
             else
-            {
-                Assert.IsTrue(returnValue!=null, string.Format("Das Feld {0} konnte nicht gefunden werden!", feldName));
-            }
-
-            return returnValue;
+                throw new AssertFailedException(string.Format("Feld {0} konnte nicht gefunden werden!", feldName));           
         }
         #endregion
     }
