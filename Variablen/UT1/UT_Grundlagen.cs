@@ -43,7 +43,7 @@ namespace UT1
         [TestMethod]
         public void BSP1_Aufgabe_006()
         {
-            Programmieren.PrüfeWert<string>(typeof(Auto), "kennzeichen", (x => string.IsNullOrEmpty(x)));
+            Programmieren.PrüfeWert<string>(typeof(Auto), "kennzeichen", (x => !string.IsNullOrEmpty(x)));
             Programmieren.PrüfeWert<string>(typeof(Auto), "kennzeichen", (x => x.StartsWith("W")));
             Programmieren.PrüfeWert<int>(typeof(Auto), "ps", (x => x >= 50 && x <= 300));
         }
