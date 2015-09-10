@@ -41,3 +41,8 @@ namespace Grundlagen
         }
     }
 }
+
+/// Nächste Lektionen
+///     Kontrollstrukturen (Verzweigungen, Schleifen)
+///     Konsole (Einlesen, Ausgeben)
+///     Wahrheitswerte (true|false, Aussagenlogik)

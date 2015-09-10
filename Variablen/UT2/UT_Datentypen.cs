@@ -20,7 +20,7 @@ namespace UT2
         [TestMethod]
         public void BSP2_Aufgabe_002()
         {
-            Programmieren.PrüfeFeld(typeof(Brille), "dioptrie", typeof(double));
+            Programmieren.PrüfeFeld(typeof(Brille), "dioptrien", typeof(double));
             Programmieren.PrüfeFeld(typeof(Brille), "gleitsicht", typeof(bool));
             Programmieren.PrüfeFeld(typeof(Brille), "farbe", typeof(string));
         }
