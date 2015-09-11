@@ -53,6 +53,16 @@
     <Compile Include="UT_Verzweigungen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BSP1\BSP1.csproj">
+      <Project>{e730ea4d-1558-4324-bb09-6c370c82fa5e}</Project>
+      <Name>BSP1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestSuite\TestSuite.csproj">
+      <Project>{b3a81fc0-2e59-4cc2-b5e7-4722503d8f76}</Project>
+      <Name>TestSuite</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

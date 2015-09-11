@@ -27,6 +27,23 @@ namespace TestSuite
             else
                 throw new AssertFailedException(string.Format("Feld {0} konnte nicht gefunden werden!", feldName));           
         }
+
+        /// <summary>
+        /// Setzt den Wert für das angegebene Feld
+        /// </summary>
+        /// <typeparam name="T">der Typ des Wertes</typeparam>
+        /// <param name="feldName">das Feld dessen Wert gesetzt werden soll</param>
+        /// <param name="wert">der neue Wert für das Feld</param>
+        public void WertSetzen<T>(string feldName, T wert)
+        {
+            Type t = this.GetType();
+            FieldInfo fi = t.GetField(feldName, BindingFlags.NonPublic | BindingFlags.Instance);
+
+            if (fi != null)
+                fi.SetValue(this, wert);
+            else
+                throw new AssertFailedException(string.Format("Feld {0} konnte nicht gefunden werden!", feldName));
+        }
         #endregion
     }
 }

@@ -63,11 +63,11 @@ namespace Verzweigungen
             int anzahlBücher = 27;
             if (anzahlBücher > 50)
             {
-                Console.WriteLine("mehr als 50 bücher");
+                Console.WriteLine("mehr als 50 bücher - LESERATTE");
             }
             else
             {
-                Console.WriteLine("NICHT mehr als 50 bücher");
+                Console.WriteLine("NICHT mehr als 50 Bücher - Bücherwurm");
             }
             Console.WriteLine();
 
@@ -131,8 +131,58 @@ namespace Verzweigungen
             /// Möglichkeit um eine Verzweigung abzubilden - das SWITCH. 
             /// 
             /// das Switch-Konstrukt ist mit einem Schalter vergleichbar. Dieser prüft zu
-            /// Beginn welchen Status/Wert er hat, und springt dann auf die entsprechende Position.
-            
+            /// Beginn welchen Status/Wert eine Variable hat, und "springt" im Anschluss
+            /// direkt auf die entsprechende Position.
+
+            /// Grundstrukur
+            /// switch (VARIABLE) {         
+            ///     case WERT1:
+            ///         beliebig viele Anweisungen
+            ///         break;
+            ///     case WERT2:
+            ///         beliebig viele Anweisungen
+            ///         break;
+            ///     default:
+            ///         beliebig viele Anweisungen
+            ///         break;
+            /// } 
+
+            /// Folgende Regeln sind zu befolgen:
+            ///     + zumindest ein Zweig verfügen 
+            ///     + jeder Zweig muss mit break; abgeschlossen werden
+            ///     + es gibt maximal einen default Zweig - dieser entspricht dem else aus dem if Konstrukt
+
+            int anzahlTore = 4;
+            switch (anzahlTore)
+            {
+                case 0:
+                    Console.WriteLine("Kein Tor gefallen");
+                    break;
+                case 1:
+                    Console.WriteLine("Ein Tor ist besser als gar keins");
+                    break;
+                case 2:
+                    Console.WriteLine("Schön langsam wirds ja...");
+                    break;
+                case 3:
+                    Console.WriteLine("HATTRICK!");
+                    break;
+                case 4:
+                    Console.WriteLine("Schützenfest");
+                    break;
+                default:
+                    Console.WriteLine("entweder weniger als 0 Tore oder mehr als 4 Tore");
+                    break;
+            }
+
+
+            /// Im Unterschied zum If kann die Switch-Kontrollstruktur nur mit den
+            /// folgenden Datentypen arbeiten:
+            ///     + bool
+            ///     + char
+            ///     + string   
+            ///     + int
+            ///     + enum
         }
     }
 }

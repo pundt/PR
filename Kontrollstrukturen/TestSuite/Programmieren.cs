@@ -68,5 +68,48 @@ namespace TestSuite
                 Assert.Fail("\"Initialisieren\" Methode konnte nicht gefunden werden.");
             }
         }
+
+        /// <summary>
+        /// Diese Methode prüft ob die Logik in einer Methode ein Feld wie geplant beeinflusst hat
+        /// </summary>
+        /// <typeparam name="T">der Typ für die Prüfungsroutine</typeparam>
+        /// <param name="obj">die zu prüfende Instanz</param>
+        /// <param name="methodenName">der Name der auszuführenden Methode</param>
+        /// <param name="parameter">etwaige Parameter-Werte für die Methode</param>
+        /// <param name="feldName">der Name des Feldes das geprüft werden soll</param>
+        /// <param name="predicate">die Regel um festzustellen ob das Feld wie geplant beeinflusst wurde.</param>
+        public static void PrüfeMethode<T>(object obj, string methodenName, object[] parameter, string feldName, Predicate<T> predicate)
+        {
+
+            Type typ = obj.GetType();
+            MethodInfo methodInfo = typ.GetMethod(methodenName);
+            if (methodInfo != null)
+            {
+                MethodInfo miWertAuslesen = typ.GetMethod("WertAuslesen");                
+                if (miWertAuslesen != null)
+                {
+                    T originalWert = (T)miWertAuslesen.Invoke(obj, new object[] { feldName });
+                    object rückgabeWert = methodInfo.Invoke(obj, parameter);
+
+                    try
+                    {
+                        T neuerWert = (T)miWertAuslesen.Invoke(obj, new object[] { feldName });
+                        Assert.IsTrue(predicate.Invoke(neuerWert), string.Format("Die Methode \"{0}\" liefert für das Feld \"{1}\" beim Wert \"{2}\" ein ungültiges Ergebnis", methodenName, feldName, originalWert));
+                    }
+                    catch (TargetInvocationException ex)
+                    {
+                        throw ex.InnerException;
+                    }
+                }
+                else
+                {
+                    Assert.Fail("\"WertAuslesen\" Methode konnte nicht gefunden werden!\nBitte \"BeispielKlasse\" verwenden.");
+                }
+            }
+            else
+            {
+                Assert.Fail("\"" + methodenName + "\" Methode konnte nicht gefunden werden.");
+            }
+        }
     }
 }
