@@ -43,7 +43,7 @@ namespace BSP1
         }
     }
 
-    public class Spieler
+    public class Spieler : BeispielKlasse
     {
         string name;
         int anzahlGelbeKarten;
@@ -68,7 +68,7 @@ namespace BSP1
         }
     }
 
-    public class Handy
+    public class Handy : BeispielKlasse
     {
         string nummer;
         int anzahlSMS;
@@ -97,7 +97,7 @@ namespace BSP1
         }
     }
 
-    public class Dokument
+    public class Dokument : BeispielKlasse
     {
         string dateiTyp;
         bool geschützt;
@@ -121,7 +121,7 @@ namespace BSP1
         }
     }
 
-    public class Wohnung
+    public class Wohnung : BeispielKlasse
     {
         string adresse;
         int anzahlM2;
