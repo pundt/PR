@@ -94,7 +94,7 @@ namespace TestSuite
                     try
                     {
                         T neuerWert = (T)miWertAuslesen.Invoke(obj, new object[] { feldName });
-                        Assert.IsTrue(predicate.Invoke(neuerWert), string.Format("Die Methode \"{0}\" liefert für das Feld \"{1}\" beim Wert \"{2}\" ein ungültiges Ergebnis", methodenName, feldName, originalWert));
+                        Assert.IsTrue(predicate.Invoke(neuerWert), string.Format("Die Methode \"{0}\" liefert für das Feld \"{1}\" beim Objekt \"{2}\" ein ungültiges Ergebnis", methodenName, feldName, obj));
                     }
                     catch (TargetInvocationException ex)
                     {

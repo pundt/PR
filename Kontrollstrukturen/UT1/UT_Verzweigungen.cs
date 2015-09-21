@@ -27,7 +27,7 @@ namespace UT1
         {
             Computer c = new Computer();
             c.WertSetzen<int>("speicherplatzInMB", 5000);
-            Programmieren.PrüfeMethode<int>(c, "SpeicherErweitern", null, "speicherplatzInMB", (x => { return x == 5000*3; }));
+            Programmieren.PrüfeMethode<int>(c, "SpeicherErweitern", null, "speicherplatzInMB", (x => { return x == 5000 * 3; }));
 
             c.WertSetzen<int>("speicherplatzInMB", 2000);
             Programmieren.PrüfeMethode<int>(c, "SpeicherErweitern", null, "speicherplatzInMB", (x => { return x == 2000 * 3; }));
@@ -64,10 +64,10 @@ namespace UT1
         public void BSP1_Aufgabe_004()
         {
             Spieler s = new Spieler();
-            Programmieren.PrüfeMethode<int>(s, "eintrittFinalSpiele", null, "anzahlRoteKarten", x => { return x==0; });
+            Programmieren.PrüfeMethode<int>(s, "eintrittFinalSpiele", null, "anzahlRoteKarten", x => { return x == 0; });
 
             s.WertSetzen<int>("anzahlGelbeKarten", 10);
-            Programmieren.PrüfeMethode<int>(s, "eintrittFinalSpiele", null, "anzahlGelbeKarten", x => { return x==5; });
+            Programmieren.PrüfeMethode<int>(s, "eintrittFinalSpiele", null, "anzahlGelbeKarten", x => { return x == 5; });
 
             s.WertSetzen<int>("anzahlGelbeKarten", 4);
             Programmieren.PrüfeMethode<int>(s, "eintrittFinalSpiele", null, "anzahlGelbeKarten", x => { return x == 0; });
@@ -184,17 +184,100 @@ namespace UT1
         [TestMethod]
         public void BSP1_Aufgabe_009()
         {
-            Computer c = new Computer();
-            c.WertSetzen<int>("speicherplatzInMB", 5000);
-            Programmieren.PrüfeMethode<int>(c, "SpeicherErweitern", null, "speicherplatzInMB", (x => { return x == 5000 * 3; }));
+            Wohnung w = new Wohnung();
+            w.WertSetzen<int>("anzahlM2", 101);
+            Programmieren.PrüfeMethode<double>(w, "preisBerechnen", null, "preis", x => { return x == 1000; });
+
+            w = new Wohnung();
+            w.WertSetzen<int>("anzahlM2", 99);
+            Programmieren.PrüfeMethode<double>(w, "preisBerechnen", null, "preis", x => { return x != 1000; });
+
+            w = new Wohnung();
+            w.WertSetzen<int>("anzahlM2", 101);
+            w.WertSetzen<bool>("balkon", true);
+            Programmieren.PrüfeMethode<double>(w, "preisBerechnen", null, "preis", x => { return x == 1300; });
+
+            w = new Wohnung();
+            w.WertSetzen<int>("anzahlM2", 101);
+            w.WertSetzen<bool>("balkon", false);
+            Programmieren.PrüfeMethode<double>(w, "preisBerechnen", null, "preis", x => { return x == 1000; });
+
+            w = new Wohnung();
+            w.WertSetzen<int>("anzahlM2", 100);
+            Programmieren.PrüfeMethode<double>(w, "preisBerechnen", null, "preis", x => { return x == 800; });
+
+            w = new Wohnung();
+            w.WertSetzen<int>("anzahlM2", 76);
+            Programmieren.PrüfeMethode<double>(w, "preisBerechnen", null, "preis", x => { return x == 800; });
+
+            w = new Wohnung();
+            w.WertSetzen<int>("anzahlM2", 76);
+            w.WertSetzen<bool>("balkon", true);
+            Programmieren.PrüfeMethode<double>(w, "preisBerechnen", null, "preis", x => { return x == 1100; });
+
+            w = new Wohnung();
+            w.WertSetzen<int>("anzahlM2", 76);
+            w.WertSetzen<bool>("balkon", false);
+            Programmieren.PrüfeMethode<double>(w, "preisBerechnen", null, "preis", x => { return x == 800; });
+
+            w = new Wohnung();
+            w.WertSetzen<int>("anzahlM2", 75);
+            Programmieren.PrüfeMethode<double>(w, "preisBerechnen", null, "preis", x => { return x == 500; });
+
+            w = new Wohnung();
+            w.WertSetzen<int>("anzahlM2", 51);
+            Programmieren.PrüfeMethode<double>(w, "preisBerechnen", null, "preis", x => { return x == 500; });
+
+            w = new Wohnung();
+            w.WertSetzen<int>("anzahlM2", 51);
+            w.WertSetzen<bool>("balkon", true);
+            Programmieren.PrüfeMethode<double>(w, "preisBerechnen", null, "preis", x => { return x == 650; });
+
+            w = new Wohnung();
+            w.WertSetzen<int>("anzahlM2", 51);
+            w.WertSetzen<bool>("balkon", false);
+            Programmieren.PrüfeMethode<double>(w, "preisBerechnen", null, "preis", x => { return x == 500; });
+
+            w = new Wohnung();
+            w.WertSetzen<int>("anzahlM2", 50);
+            Programmieren.PrüfeMethode<double>(w, "preisBerechnen", null, "preis", x => { return x == 0; });
         }
 
         [TestMethod]
         public void BSP1_Aufgabe_010()
         {
-            Computer c = new Computer();
-            c.WertSetzen<int>("speicherplatzInMB", 5000);
-            Programmieren.PrüfeMethode<int>(c, "SpeicherErweitern", null, "speicherplatzInMB", (x => { return x == 5000 * 3; }));
+            Wohnung w = new Wohnung();
+            w.WertSetzen<string>("adresse", "A-1030");
+            Programmieren.PrüfeMethode<bool>(w, "umbauen", null, "balkon", x => { return x; });
+            Programmieren.PrüfeMethode<double>(w, "umbauen", null, "preis", x => { return x==800; });
+
+            w = new Wohnung();
+            w.WertSetzen<string>("adresse", "A-1050");
+            Programmieren.PrüfeMethode<bool>(w, "umbauen", null, "balkon", x => { return !x; });
+            Programmieren.PrüfeMethode<double>(w, "umbauen", null, "preis", x => { return x == 700; });
+
+            w = new Wohnung();
+            w.WertSetzen<string>("adresse", "A-1070");
+            w.WertSetzen<int>("anzahlM2", 89);
+            Programmieren.PrüfeMethode<bool>(w, "umbauen", null, "balkon", x => { return x; });
+            Programmieren.PrüfeMethode<double>(w, "umbauen", null, "preis", x => { return x == 1200; });
+
+            w = new Wohnung();
+            w.WertSetzen<string>("adresse", "A-1070");
+            w.WertSetzen<int>("anzahlM2", 90);
+            Programmieren.PrüfeMethode<bool>(w, "umbauen", null, "balkon", x => { return !x; });
+            Programmieren.PrüfeMethode<double>(w, "umbauen", null, "preis", x => { return x == 0; });
+
+            w = new Wohnung();
+            w.WertSetzen<string>("adresse", "A-1070");
+            w.WertSetzen<int>("anzahlM2", 91);
+            Programmieren.PrüfeMethode<bool>(w, "umbauen", null, "balkon", x => { return !x; });
+            Programmieren.PrüfeMethode<double>(w, "umbauen", null, "preis", x => { return x == 0; });
+
+            w = new Wohnung();
+            w.WertSetzen<string>("adresse", "asdf");
+            Programmieren.PrüfeMethode<bool>(w, "umbauen", null, "balkon", x => { return !x; });
+            Programmieren.PrüfeMethode<double>(w, "umbauen", null, "preis", x => { return x == 0; });
         }
     }
 }

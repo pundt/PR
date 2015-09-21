@@ -93,7 +93,7 @@ namespace BSP1
             ///     bei mehr als 20 SMS oder mehr als 1000 anzahlMegaByte soll der tarif auf "mini" gesetzt werden 
             ///     bei mehr als 50 SMS oder mehr als 1500 anzahlMegaByte soll der tarif auf "midi" gesetzt werden
             ///     bei mehr als 100 SMS UND mehr als 2000 anzahlMegaByte soll der tarif auf "maxi" gesetzt werden
-            
+
         }
     }
 
@@ -109,7 +109,7 @@ namespace BSP1
             ///     wenn der dateiTyp gleich ".exe" ist soll das Dokument geschützt (also true) sein
             ///     wenn der dateiTyp gleich ".bat" ist UND anzahlBytes > 5000 ist,  soll das Dokument geschützt (also true) sein
             ///     in allen anderen Fällen soll geschützt false sein
-            
+
         }
 
         public void entsperren()
@@ -117,7 +117,7 @@ namespace BSP1
             /// TODO - Aufgabe 008 - Verzweigung komplex
             ///     wenn geschützt true ist - soll der Dateityp auf ".locked" gesetzt werden und anzahlBytes um 120 erhöht werden.
             ///     wenn geschützt false ist - soll der Dateityp auf ".unlocked" gesetzt werden und anzahlBytes um 50 verringert werden.
-            
+
         }
     }
 
@@ -137,7 +137,7 @@ namespace BSP1
 
             ///     Wohnungen deren anzahlM2 größer ist als 75 haben einen preis von 800.
             ///     Wohnungen deren anzahlM2 größer ist als 75 UND die einen balkon (=true) haben, haben einen preis von 1100.
-            
+
             ///     Wohnungen deren anzahlM2 größer ist als 50 haben einen preis von 500.
             ///     Wohnungen deren anzahlM2 größer ist als 50 UND die einen balkon (=true) haben, haben einen preis von 650.
 
