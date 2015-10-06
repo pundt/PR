@@ -220,7 +220,8 @@ namespace UT2
                 Assert.IsTrue(sw.ToString() == sb.ToString(),
                     string.Format("Schleifenausgabe bei stockwerk '{0}', minutenBetriebsZeit '{1}' falsch!\nBitte 'Fahren()' kontrollieren!",
                                 l.WertAuslesen("stockwerk"), l.WertAuslesen("minutenBetriebsZeit")));
-                Assert.IsTrue(minutenBetriebsZeit == (double)l.WertAuslesen("minutenBetriebsZeit"), "Ungültiger Wert für 'minutenBetriebsZeit'. Bitte 'Fahren()' kontrollieren!");
+                Assert.IsTrue(minutenBetriebsZeit == (double)l.WertAuslesen("minutenBetriebsZeit"),
+                    "Ungültiger Wert für 'minutenBetriebsZeit'. Bitte 'Fahren()' kontrollieren!");
             }
 
         }
@@ -261,13 +262,65 @@ namespace UT2
         [TestMethod]
         public void BSP1_Aufgabe_019()
         {
+            Waage w = new Waage();
+            Random generator = new Random();
+            int anzahlProdukte = generator.Next(10, 100);
+            w.WertSetzen<int>("anzahlProdukte", anzahlProdukte);
+            double abweichung = generator.Next(1, 10) / 10;
+            w.WertSetzen<double>("abweichung", abweichung);
 
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                w.Kalibrieren();
+
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < anzahlProdukte; i++)
+                {
+                    abweichung -= 0.05;
+                    sb.AppendLine(abweichung.ToString());
+                }
+
+                Assert.IsTrue(sw.ToString() == sb.ToString(),
+                   string.Format("Schleifenausgabe bei anzahlProdukte '{0}' falsch!\nBitte 'Kalibrieren()' kontrollieren!",
+                               w.WertAuslesen("anzahlProdukte")));
+                Assert.IsTrue((bool)w.WertAuslesen("kalibriert"),
+                    "Ungültiger Wert für 'kalibriert'. Bitte 'Kalibrieren()' kontrollieren!");
+                Assert.AreEqual((double)w.WertAuslesen("abweichung"), abweichung,
+                    "Ungültiger Wert für 'abweichung'.Bitte 'Kalibrieren()' kontrollieren!");
+            }
         }
 
         [TestMethod]
         public void BSP1_Aufgabe_020()
         {
+            Waage w = new Waage();
+            Random generator = new Random();
+            int anzahlProdukte = generator.Next(10, 100);
+            w.WertSetzen<int>("anzahlProdukte", anzahlProdukte);
+            double abweichung = 0;
+            w.WertSetzen<double>("abweichung", abweichung);
 
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                w.Wiegen();
+
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < anzahlProdukte; i++)
+                {
+                    abweichung += 0.02;
+                    sb.AppendLine(abweichung.ToString());
+                }
+
+                Assert.IsTrue(sw.ToString() == sb.ToString(),
+                   string.Format("Schleifenausgabe bei anzahlProdukte '{0}' falsch!\nBitte 'Wiegen()' kontrollieren!",
+                               w.WertAuslesen("anzahlProdukte")));
+                Assert.IsTrue(!(bool)w.WertAuslesen("kalibriert"),
+                    "Ungültiger Wert für 'kalibriert'. Bitte 'Kalibrieren()' kontrollieren!");
+                Assert.AreEqual((double)w.WertAuslesen("abweichung"), abweichung,
+                    "Ungültiger Wert für 'abweichung'.Bitte 'Kalibrieren()' kontrollieren!");
+            }
         }
     }
 }

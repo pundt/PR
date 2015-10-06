@@ -144,21 +144,23 @@ namespace BSP2
 
         public void Kalibrieren()
         {
-            /// TODO - Aufgabe 019 - Schleife einfach
+            /// TODO - Aufgabe 019 - for Schleife
             /// Zählen Sie in einer Schleife von 0 bis exklusive anzahlProdukte.
-            ///     Bei jedem Durchlauf soll abweichung um 0.05 verringert werden.
+            ///     Bei jedem Durchlauf soll abweichung um 0.05 verringert 
+            ///     und ausgegeben werden
             /// 
-            /// Nach der Schleife ist kallibriert auf true zu setzen.
-            Console.WriteLine("asdf");
+            /// Nach der Schleife ist kalibriert auf true zu setzen.
+
+
         }
         public void Wiegen()
         {
-            /// TODO - Aufgabe 020 - Schleife einfach
+            /// TODO - Aufgabe 020 - for Schleife
             /// Setzen Sie abweichung auf 0
-            /// Wiegen Sie 10 Produkte.
-            /// Bei jedem Abwiege-Vorgang soll abweichung um 0.02 erhöht werden
+            /// Wiegen Sie anzahlProdukte ab dabei soll jedesmal die 
+            ///     abweichung um 0.02 erhöht und ausgegeben werden
             /// 
-            /// nach der Schleife ist kallibriert auf false zu setzen.
+            /// nach der Schleife ist kalibriert auf false zu setzen.
 
         }
     }
