@@ -23,11 +23,11 @@ namespace UT2
                 Console.SetOut(sw);
                 k.KaffeeMachen();
                 StringBuilder sb = new StringBuilder();
-                
-                for (int i = kapseln; i > 50; i--)
-                    sb.AppendLine(i.ToString());                
 
-                Assert.IsTrue(sw.ToString() == sb.ToString(), "Schleifenausgabe falsch! Bitte 'KaffeeMachen()' kontrollieren!"); 
+                for (int i = kapseln; i > 50; i--)
+                    sb.AppendLine(i.ToString());
+
+                Assert.IsTrue(sw.ToString() == sb.ToString(), "Schleifenausgabe falsch! Bitte 'KaffeeMachen()' kontrollieren!");
             }
         }
 
@@ -42,12 +42,12 @@ namespace UT2
 
             using (StringWriter sw = new StringWriter())
             {
-                Console.SetOut(sw);                
+                Console.SetOut(sw);
                 k.Rücksetzen();
-                
+
                 StringBuilder sb = new StringBuilder();
 
-                for (int i = kapseln; i > 0; i-=2)
+                for (int i = kapseln; i > 0; i -= 2)
                     sb.AppendLine(true.ToString());
 
                 Assert.IsTrue(sw.ToString() == sb.ToString(), "Schleifenausgabe falsch! Bitte 'Rücksetzen()' kontrollieren!");
@@ -76,7 +76,7 @@ namespace UT2
                     dokumenteInWarteschlange--;
                     sb.AppendLine(dokumenteInWarteschlange.ToString());
                 }
-                              
+
                 Assert.IsTrue(sw.ToString() == sb.ToString(), "Schleifenausgabe falsch! Bitte 'Drucken()' kontrollieren!");
                 Assert.IsTrue(!((bool)d.WertAuslesen("IstSauber")), "Ungültiger Wert für 'IstSauber'. Bitte 'Drucken()' kontrollieren!");
             }
@@ -112,24 +112,149 @@ namespace UT2
         [TestMethod]
         public void BSP1_Aufgabe_015()
         {
+            VirenScanner vs = new VirenScanner();
+            vs.WertSetzen<bool>("virusGefunden", false);
+            Random generator = new Random();
+            int anzahlDokumenteGescanned = generator.Next(1, 5000);
+            vs.WertSetzen<int>("anzahlDokumenteGescanned", anzahlDokumenteGescanned);
+            vs.WertSetzen<string>("lizenzSchlüssel", "pe192fn");
 
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                vs.Scannen();
+
+                StringBuilder sb = new StringBuilder();
+                do
+                {
+                    anzahlDokumenteGescanned++;
+                    sb.AppendLine(vs.WertAuslesen("lizenzSchlüssel").ToString());
+                } while (anzahlDokumenteGescanned < 10000 && (!(bool)vs.WertAuslesen("virusGefunden")));
+
+                Assert.IsTrue(sw.ToString() == sb.ToString(), "Schleifenausgabe falsch! Bitte 'Scannen()' kontrollieren!");
+            }
         }
 
         [TestMethod]
         public void BSP1_Aufgabe_016()
         {
+            Random generator = new Random();
+            int anzahlDokumenteGescanned = generator.Next(101, 5000);
 
+            // 1
+            VirenScanner vs = new VirenScanner();
+            vs.WertSetzen<string>("lizenzSchlüssel", "keineLIZENZ");
+            vs.WertSetzen<int>("anzahlDokumenteGescanned", anzahlDokumenteGescanned);
+            vs.Lizenzieren();
+            Assert.IsTrue((bool)vs.WertAuslesen("virusGefunden"), "Ungültiger Wert für 'virusGefunden'. Bitte 'Lizenzieren()' kontrollieren!");
+
+            // 2
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+
+                anzahlDokumenteGescanned = generator.Next(10, 99);
+                vs = new VirenScanner();
+                vs.WertSetzen<string>("lizenzSchlüssel", "keineLIZENZ");
+                vs.WertSetzen<int>("anzahlDokumenteGescanned", anzahlDokumenteGescanned);
+                vs.Lizenzieren();
+
+                StringBuilder sb = new StringBuilder();
+                for (int i = anzahlDokumenteGescanned; i > 0; i--)
+                {
+                    sb.AppendLine(vs.WertAuslesen("lizenzSchlüssel").ToString());
+                }
+                Assert.IsTrue(sw.ToString() == sb.ToString(),
+                    string.Format("Schleifenausgabe bei lizenzSchlüssel '{0}', anzahlDokumenteGescanned '{1}' falsch!\nBitte 'Lizenzieren()' kontrollieren!",
+                                vs.WertAuslesen("lizenzSchlüssel"), vs.WertAuslesen("anzahlDokumenteGescanned")));
+            }
+
+            // 3
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+
+                anzahlDokumenteGescanned = generator.Next(109, 999);
+                vs = new VirenScanner();
+                vs.WertSetzen<string>("lizenzSchlüssel", "asdf");
+
+                vs.WertSetzen<int>("anzahlDokumenteGescanned", anzahlDokumenteGescanned);
+                vs.Lizenzieren();
+
+                StringBuilder sb = new StringBuilder();
+                for (int i = anzahlDokumenteGescanned; i > 0; i--)
+                {
+                    sb.AppendLine(vs.WertAuslesen("lizenzSchlüssel").ToString());
+                }
+                Assert.IsTrue(sw.ToString() == sb.ToString(),
+                    string.Format("Schleifenausgabe bei lizenzSchlüssel '{0}', anzahlDokumenteGescanned '{1}' falsch!\nBitte 'Lizenzieren()' kontrollieren!",
+                                vs.WertAuslesen("lizenzSchlüssel"), vs.WertAuslesen("anzahlDokumenteGescanned")));
+            }
         }
 
         [TestMethod]
         public void BSP1_Aufgabe_017()
         {
+            Lift l = new Lift();
+            Random generator = new Random();
+            int stockwerk = generator.Next(-10, -5);
+            double minutenBetriebsZeit = 0;
+            l.WertSetzen<int>("stockwerk", stockwerk);
+            l.WertSetzen<double>("minutenBetriebsZeit", minutenBetriebsZeit);
+
+            using (StringWriter sw = new StringWriter())
+            {
+                // actual
+                Console.SetOut(sw);
+                l.Fahren();
+
+                // expected
+                StringBuilder sb = new StringBuilder();
+                while (stockwerk < 3)
+                {
+                    stockwerk++;
+                    minutenBetriebsZeit += 0.5;
+                    sb.AppendLine(l.WertAuslesen("wartungsIntervalle").ToString());
+                }
+
+                Assert.IsTrue(sw.ToString() == sb.ToString(),
+                    string.Format("Schleifenausgabe bei stockwerk '{0}', minutenBetriebsZeit '{1}' falsch!\nBitte 'Fahren()' kontrollieren!",
+                                l.WertAuslesen("stockwerk"), l.WertAuslesen("minutenBetriebsZeit")));
+                Assert.IsTrue(minutenBetriebsZeit == (double)l.WertAuslesen("minutenBetriebsZeit"), "Ungültiger Wert für 'minutenBetriebsZeit'. Bitte 'Fahren()' kontrollieren!");
+            }
 
         }
 
         [TestMethod]
         public void BSP1_Aufgabe_018()
         {
+            Lift l = new Lift();
+            Random generator = new Random();
+            double minutenBetriebsZeit = generator.Next(1500, 2500);
+            l.WertSetzen<double>("minutenBetriebsZeit", minutenBetriebsZeit);
+            int wartungsIntervalle = 0;
+            l.WertSetzen<int>("wartungsIntervalle", wartungsIntervalle);
+
+            using (StringWriter sw = new StringWriter())
+            {
+                // actual
+                Console.SetOut(sw);
+                l.Warten();
+
+                // expected
+                StringBuilder sb = new StringBuilder();
+                while (minutenBetriebsZeit > 25)
+                {
+                    minutenBetriebsZeit -= 7.5;
+                    wartungsIntervalle++;
+
+                    sb.AppendLine(wartungsIntervalle.ToString());
+                }
+
+                Assert.IsTrue(sw.ToString() == sb.ToString(),
+                    string.Format("Schleifenausgabe falsch!\nBitte 'Warten()' kontrollieren!"));
+                Assert.IsTrue(minutenBetriebsZeit == (double)l.WertAuslesen("minutenBetriebsZeit"), "Ungültiger Wert für 'minutenBetriebsZeit'. Bitte 'Warten()' kontrollieren!");
+            }
 
         }
 

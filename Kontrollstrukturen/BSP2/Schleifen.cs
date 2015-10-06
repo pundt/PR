@@ -33,7 +33,7 @@ namespace BSP2
         
         public void KaffeeMachen()
         {
-            /// TODO - Aufgabe 011 - Schleife einfach
+            /// TODO - Aufgabe 011 - while/for Schleife
             /// solange kapselnVorhanden größer ist als 50, soll 
             ///     die Anzahl der vorhandenen Kapseln ausgegeben werden
             ///     im Anschluss die anzahl der vorhandenen Kapseln um 1 reduziert werden.
@@ -43,7 +43,7 @@ namespace BSP2
 
         public void Rücksetzen()
         {
-            /// TODO - Aufgabe 012 - Schleife einfach
+            /// TODO - Aufgabe 012 - while/for Schleife
             /// Solange kapselnVorhanden größer als 0 ist
             ///     geben Sie immer wieder mussEntkalktWerden aus
             ///     und verringern Sie kapselnVorhanden um 2
@@ -61,7 +61,7 @@ namespace BSP2
 
         public void Drucken()
         {
-            /// TODO - Aufgabe 013 - Schleife einfach
+            /// TODO - Aufgabe 013 - while/for Schleife
             /// Solange dokumenteInWarteschlange > 0 sind,
             ///     soll der Wert um 1 verringert werden.
             ///     und der Wert von dokumenteInWarteschlange ausgegeben werden
@@ -73,7 +73,7 @@ namespace BSP2
 
         public void Reinigen()
         {
-            /// TODO - Aufgabe 014 - Schleife einfach
+            /// TODO - Aufgabe 014 - while/for Schleife
             ///     Setzen Sie IstSauber auf true;
             ///     Solange tintenStand kleiner als 1 ist
             ///         soll der tintenStand immer um 0.05 erhöht werden
@@ -84,23 +84,28 @@ namespace BSP2
 
     public class VirenScanner : BeispielKlasse
     {
-        int anzahlVirenGefunden = 0;
+        bool virusGefunden = false;
         int anzahlDokumenteGescanned = 0;
-        int anzahlDokumenteInQuarantäne = 0;
-        string lizenzSchlüssel = "";
+        string lizenzSchlüssel = "V-1203";
 
         public void Scannen()
         {
-            /// TODO - Aufgabe 015 - Schleife einfach
-            ///     Zählen Sie mit einer Schleife von 1000 bis 15138 in 1er Schritten.
-            ///     Erhöhen Sie bei jedem Schleifendurchlauf anzahlDokumenteGescanned um eins
+            /// TODO - Aufgabe 015 - do while Schleife
+            /// 
+            ///     Erhöhen Sie AnzahlDokumenteGescanned um 1 und
+            ///     geben Sie den Lizenzschlüssel aus
+            /// solange anzahlDokumenteGescanned kleiner als 10000 ist und virusGefunden false ist
 
         }
         public void Lizenzieren()
         {
-            /// TODO - Aufgabe 016 - Schleife einfach
-            ///     Zählen Sie mit einer Schleife von 94671 bis 12874 in -1er Schritten.
-            ///     Erhöhen Sie bei jedem Schleifendurchlauf anzahlDokumentInQuarantäne um 3 
+            /// TODO - Aufgabe 016 - Ablauflogik
+            /// Wenn der lizenzSchlüssel gleich "keineLIZENZ" lautet und anzahlDokumenteGescanned > 100 ist
+            ///     soll virusGefunden auf true gesetzt werden.
+
+            /// Ansonsten zählen Sie von anzahlDokumenteGescanned bis 0 in -1er Schritten herunter
+            /// und geben dabei jedesmal den Lizenzschlüssel aus!
+
 
         }
     }
@@ -114,18 +119,19 @@ namespace BSP2
 
         public void Fahren()
         {
-            /// TODO - Aufgabe 017 - Schleife einfach
-            /// Erhöhen Sie Stockwerk schrittweise immer um 1 bis +3 erreicht wurde.
-            ///     Dabei soll jedesmal die MinutenBetriebsZeit um 0.5 erhöht werden.
-
+            /// TODO - Aufgabe 017 - while Schleife
+            /// Solnage Stockwerk kleiner ist als 3 soll
+            ///     der Wert immer um 1 erhöht werden,
+            ///     die MinutenBetriebsZeit um 0.5 erhöht werden,
+            ///     und wartungsIntervalle ausgegeben werden
 
         }
         public void Warten()
         {
-            /// TODO - Aufgabe 018 - Schleife einfach
-            /// Setzen Sie minutenBetriebsZeit auf 1575
+            /// TODO - Aufgabe 018 - while Schleife
             /// Solange minutenBetriebsZeit größer ist als 25 verringern Sie diesen Wert um 7.5
-            ///     Erhöhen Sie bei jedem Schleifendurchlauf wartungsIntervalle um 1
+            ///     Erhöhen Sie bei jedem Schleifendurchlauf wartungsIntervalle um 1 und
+            ///     geben Sie dieses je Durchlauf aus
 
         }
     }
