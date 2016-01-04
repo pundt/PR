@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 /// Notwendige Vorkenntnisse
-///     - Datentypen (vgl. dazu https://github.com/bbrzWien/PR/tree/master/Variablen)
-///     - Variablen (vgl. dazu https://github.com/bbrzWien/PR/tree/master/Variablen)
+///     - Datentypen (vgl. dazu https://github.com/pundt/PR/tree/master/Variablen)
+///     - Variablen (vgl. dazu https://github.com/pundt/PR/tree/master/Variablen)
 
 namespace Verzweigungen
 {

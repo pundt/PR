@@ -11,7 +11,7 @@ namespace UT2
     public class UT_Schleifen
     {
         [TestMethod]
-        public void BSP1_Aufgabe_011()
+        public void BSP2_Aufgabe_011()
         {
             KaffeeMaschine k = new KaffeeMaschine();
             Random generator = new Random();
@@ -32,7 +32,7 @@ namespace UT2
         }
 
         [TestMethod]
-        public void BSP1_Aufgabe_012()
+        public void BSP2_Aufgabe_012()
         {
             KaffeeMaschine k = new KaffeeMaschine();
             Random generator = new Random();
@@ -56,7 +56,7 @@ namespace UT2
         }
 
         [TestMethod]
-        public void BSP1_Aufgabe_013()
+        public void BSP2_Aufgabe_013()
         {
             Drucker d = new Drucker();
             Random generator = new Random();
@@ -83,7 +83,7 @@ namespace UT2
         }
 
         [TestMethod]
-        public void BSP1_Aufgabe_014()
+        public void BSP2_Aufgabe_014()
         {
             Drucker d = new Drucker();
             Random generator = new Random();
@@ -110,7 +110,7 @@ namespace UT2
         }
 
         [TestMethod]
-        public void BSP1_Aufgabe_015()
+        public void BSP2_Aufgabe_015()
         {
             VirenScanner vs = new VirenScanner();
             vs.WertSetzen<bool>("virusGefunden", false);
@@ -136,7 +136,7 @@ namespace UT2
         }
 
         [TestMethod]
-        public void BSP1_Aufgabe_016()
+        public void BSP2_Aufgabe_016()
         {
             Random generator = new Random();
             int anzahlDokumenteGescanned = generator.Next(101, 5000);
@@ -193,7 +193,7 @@ namespace UT2
         }
 
         [TestMethod]
-        public void BSP1_Aufgabe_017()
+        public void BSP2_Aufgabe_017()
         {
             Lift l = new Lift();
             Random generator = new Random();
@@ -227,7 +227,7 @@ namespace UT2
         }
 
         [TestMethod]
-        public void BSP1_Aufgabe_018()
+        public void BSP2_Aufgabe_018()
         {
             Lift l = new Lift();
             Random generator = new Random();
@@ -260,7 +260,7 @@ namespace UT2
         }
 
         [TestMethod]
-        public void BSP1_Aufgabe_019()
+        public void BSP2_Aufgabe_019()
         {
             Waage w = new Waage();
             Random generator = new Random();
@@ -292,7 +292,7 @@ namespace UT2
         }
 
         [TestMethod]
-        public void BSP1_Aufgabe_020()
+        public void BSP2_Aufgabe_020()
         {
             Waage w = new Waage();
             Random generator = new Random();
