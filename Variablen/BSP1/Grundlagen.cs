@@ -17,11 +17,12 @@ namespace BSP1
     public class Person : BeispielKlasse
     {
         /// TODO - Aufgabe 001: Legen Sie eine int Variable alter an
+        int alter;
 
         public void Initialisieren()
         {
             /// TODO - Aufgabe 002: Weisen Sie der Variable alter Ihr Alter zu!
-
+            alter = 33;
         }
     }
 
